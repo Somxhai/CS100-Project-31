@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<form id="activity-form" action="#" method="post">
+		<div class="input-group">
+			<label for="name">ชื่อ นามสกุล</label>
+			<input type="text" name="name" value="">
+			<p class="error" id="nameError"></p>
+		</div>
+		<div class="input-group">
+			<label for="studentId">รหัสนักศึกษา</label>
+			<input type="text" name="studentId" value="">
+			<p class="error" id="studentIdError"></p>
+		</div>
+		<div class="input-group">
+			<label for="academic-year">ชั้นปีที่</label>
+			<select id="academic-year" name="academic-year">
+			</select>
+			<p class="error" id="nameError"></p>
+		</div>
+		<div class="input-group">
+			<label for="image">รูปภาพ</label>
+			<input type="file" name="image" id="image" accept="image/*">
+			<img id="image-display" />
+			<p class="error" id="imageError"></p>
+		</div>
+		<div class="input-group">
+			<label for="title">ชื่อกิจกรรม</label>
+			<input type="text" name="title" value="">
+			<p class="error" id="titleError"></p>
+		</div>
+		<div class="input-group">
+			<label for="date">วันที่</label>
+			<input type="date" name="date" value="">
+			<p class="error" id="dateError"></p>
+		</div>
+		<div class="input-group">
+			<label for="content">เนื้อหา</label>
+			<textarea name="content"></textarea>
+			<p class="error" id="contentError"></p>
+		</div>
+		<div class="input-group">
+			<label for="type">ประเภท</label>
+			<select name="type">
+				<option value="" disabled="" selected>เลือกประเภทกิจกรรม</option>
+				<option value="formal">ทางการ</option>
+				<option value="casual">ไม่เป็นทางการ</option>
+			</select>
+			<p class="error" id="typrError"></p>
+		</div>
+		<button type="submit" class="submit-button">ยืนยัน</button>
+	</form>
+</body>
+<script src="logic/form.js">
+</script>
+
+</html>
