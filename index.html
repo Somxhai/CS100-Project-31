@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/css/responsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="/css/script.js"></script>
 </head>
 <body>
   <nav>
@@ -23,7 +24,7 @@
       <p>Greetings...</p>
     </section>
     <section id="Code31">
-      <p>..Code 31</p>
+      <p>..CODE 31</p>
     </section>
   </div>
   <section id="myfavorite" class="myfavorite">
@@ -38,7 +39,7 @@
                   <div class="centered">Harddisk</div>
                   <div class="isotope-overlay">
                     <b>                       
-                        ชาดิสก์ แดนมะตาม 6609611840<br>
+                        ชาดิสก์ แดนมะตาม 6609611840<br><br>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                         </svg> 
@@ -67,7 +68,7 @@
                     <div class="centered">Tong</div>
                     <div class="isotope-overlay">
                       <b>
-                          กิติตศักดิ์ คำแสน 6609520124<br>
+                          กิติตศักดิ์ คำแสน 6609520124<br><br>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                           </svg> 
@@ -95,7 +96,7 @@
                       <div class="centered">Peak</div>
                       <div class="isotope-overlay">
                         <b>
-                          ชนกันต์ ทองรอง 6609611816<br>
+                          ชนกันต์ ทองรอง 6609611816<br><br>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                           </svg> 
@@ -125,52 +126,5 @@
       </div>
     </div>
   </section>
-  <script>
-   document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll('.isotope .item');
-  const navHome = document.querySelector('nav a.home');
-  const navActivity = document.querySelector('nav a.activity');
-  const navH1 = document.querySelector('nav h1');
-  items.forEach(item => {
-    item.addEventListener('mouseover', function () {
-      const color = this.getAttribute('data-color');
-      const textColor = this.getAttribute('data-text-color');
-      document.documentElement.style.setProperty('--body-bg', `var(${color})`);
-      document.getElementById('Greetings').style.color = `var(${textColor})`;
-      document.getElementById('Code31').style.color = `var(${textColor})`;
-      document.documentElement.style.setProperty('--greetings-text-color', `var(${textColor})`);
-      document.documentElement.style.setProperty('--code31-text-color', `var(${textColor})`);
-      navHome.style.color = `var(${textColor})`;
-      navActivity.style.color = `var(${textColor})`;
-      navH1.style.color = `var(${textColor})`;
-    });
-    item.addEventListener('mouseout', function () {
-      document.documentElement.style.setProperty('--body-bg', '#f5f5f5');
-      document.getElementById('Greetings').style.color = '';
-      document.getElementById('Code31').style.color = '';
-      document.documentElement.style.removeProperty('--greetings-text-color');
-      document.documentElement.style.removeProperty('--code31-text-color');
-      navHome.style.color = 'var(--body-text)';
-      navActivity.style.color = 'var(--body-text)';
-      navH1.style.color = 'var(--body-text)';
-    });
-    navHome.addEventListener('mouseover', function () {
-    this.style.color = 'var(--body-bg)';
-  });
-
-  navHome.addEventListener('mouseout', function () {
-    this.style.color = 'var(--body-text)';
-  });
-
-  navActivity.addEventListener('mouseover', function () {
-    this.style.color = 'var(--body-bg)';
-  });
-
-  navActivity.addEventListener('mouseout', function () {
-    this.style.color = 'var(--body-text)';
-  });
-});
-});
-  </script>
-  </body>
-  </html>
+</body>
+</html>
