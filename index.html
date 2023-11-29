@@ -3,42 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Our CSTU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/script.js">
   <link rel="stylesheet" href="/css/responsive.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-  <div class="topnav">
-    <div class="topnav-centered">
-      <h1>Passport</h1>
-    </div>
-    <a href="#home">Home</a>
-    <div class="topnav-right">
-      <a href="#activity">Activity</a>
-    </div>
-  </div>
+  <nav>
+  <a href="#" class="home">Home</a>
+  <a href="#" class="activity">Activity</a>
+  <h1>Passport</h1>
+  </nav>
   <div class="container">
     <section id="Greetings">
       <p>Greetings...</p>
     </section>
-    <div>
-      <hr class="new1">
-    </div>
-    <div>
-      <hr class="new2">
-    </div>
-    <div>
-      <hr class="new3">
-    </div>
     <section id="Code31">
-      <p>...Code 31</p>
+      <p>..Code 31</p>
     </section>
-    <div>
-      <hr class="new4">
-    </div>
   </div>
   <section id="myfavorite" class="myfavorite">
     <div class="myfavorite-details">
@@ -47,8 +33,9 @@
           <div class="isotope">
             <div class="row">
               <div class="col-sm-4">
-                <div class="item">
+                <div class="item"data-color="--harddisk-bg" data-text-color="--harddisk-text">
                   <img src="/img/Chadisk_img.png" alt="myfavorite image"/>
+                  <div class="centered">Harddisk</div>
                   <div class="isotope-overlay">
                     <b>                       
                         ชาดิสก์ แดนมะตาม 6609611840<br>
@@ -75,8 +62,9 @@
                   </div>
                 </div>
                 <div class="col-sm-4">
-                  <div class="item">
+                  <div class="item" data-color="--tong-bg" data-text-color="--tong-text">
                     <img src="/img/Tong_img.jpg" alt="myfavorite image"/>
+                    <div class="centered">Tong</div>
                     <div class="isotope-overlay">
                       <b>
                           กิติตศักดิ์ คำแสน 6609520124<br>
@@ -102,8 +90,9 @@
                     </div>
                   </div>
                   <div class="col-sm-4">
-                    <div class="item">
+                    <div class="item" data-color="--peak-bg" data-text-color="--peak-text">
                       <img src="/img/Peak_img.jpeg" alt="myfavorite image"/>
+                      <div class="centered">Peak</div>
                       <div class="isotope-overlay">
                         <b>
                           ชนกันต์ ทองรอง 6609611816<br>
@@ -136,5 +125,52 @@
       </div>
     </div>
   </section>
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
+  const items = document.querySelectorAll('.isotope .item');
+  const navHome = document.querySelector('nav a.home');
+  const navActivity = document.querySelector('nav a.activity');
+  const navH1 = document.querySelector('nav h1');
+  items.forEach(item => {
+    item.addEventListener('mouseover', function () {
+      const color = this.getAttribute('data-color');
+      const textColor = this.getAttribute('data-text-color');
+      document.documentElement.style.setProperty('--body-bg', `var(${color})`);
+      document.getElementById('Greetings').style.color = `var(${textColor})`;
+      document.getElementById('Code31').style.color = `var(${textColor})`;
+      document.documentElement.style.setProperty('--greetings-text-color', `var(${textColor})`);
+      document.documentElement.style.setProperty('--code31-text-color', `var(${textColor})`);
+      navHome.style.color = `var(${textColor})`;
+      navActivity.style.color = `var(${textColor})`;
+      navH1.style.color = `var(${textColor})`;
+    });
+    item.addEventListener('mouseout', function () {
+      document.documentElement.style.setProperty('--body-bg', '#f5f5f5');
+      document.getElementById('Greetings').style.color = '';
+      document.getElementById('Code31').style.color = '';
+      document.documentElement.style.removeProperty('--greetings-text-color');
+      document.documentElement.style.removeProperty('--code31-text-color');
+      navHome.style.color = 'var(--body-text)';
+      navActivity.style.color = 'var(--body-text)';
+      navH1.style.color = 'var(--body-text)';
+    });
+    navHome.addEventListener('mouseover', function () {
+    this.style.color = 'var(--body-bg)';
+  });
+
+  navHome.addEventListener('mouseout', function () {
+    this.style.color = 'var(--body-text)';
+  });
+
+  navActivity.addEventListener('mouseover', function () {
+    this.style.color = 'var(--body-bg)';
+  });
+
+  navActivity.addEventListener('mouseout', function () {
+    this.style.color = 'var(--body-text)';
+  });
+});
+});
+  </script>
   </body>
   </html>
