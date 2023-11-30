@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll(".isotope .item");
+  const items = document.querySelectorAll(".item");
   const navHome = document.querySelector("nav a.home");
   const navActivity = document.querySelector("nav a.activity");
   const navH1 = document.querySelector("nav h1");

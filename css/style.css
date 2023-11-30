@@ -27,18 +27,14 @@ input, select, textarea{
   outline: none;
   border-radius: 8px;
 }
+
 body {
-height: 100dvh; 
-font-family: 'Space Mono', monospace;
-margin:0; 
-padding:0;
-background-color: var(--body-bg);
-transition: background-color 0.5s ease-in-out;
+  overflow-y: hidden;
+  font-family: 'Space Mono', monospace;
+  background-color: var(--body-bg);
+  transition: background-color 0.5s ease-in-out;
 }
 
-html {  
-  height:100dvh;
-}
 
 button {
   border: none;
@@ -77,7 +73,7 @@ nav a.home {
 
 nav a.activity {
   float: right;
-  
+
 }
 
 nav h1 {
@@ -115,79 +111,79 @@ a:hover::before {
 }
 /*
 .container {
-  margin: auto;
-  max-height: 100dvh;
+margin: auto;
+max-height: 100dvh;
 }
 
 
 #Greetings {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Space Mono', monospace;
-  font-size: 100px;
-  transform: translateY(50%);
-  margin: 0;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: 'Space Mono', monospace;
+font-size: 100px;
+transform: translateY(50%);
+margin: 0;
 }
 
 #Greetings::before,
 #Greetings::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  top: 50%;
-  background-color: var(--greetings-text-color, var(--body-text));
+content: "";
+position: absolute;
+height: 2px;
+width: 100%;
+top: 50%;
+background-color: var(--greetings-text-color, var(--body-text));
 }
 
 #Greetings::before {
-  position:static;
-  height: 2px;
-  top: 55%;
-  right: 0;
-  transform: translateX(100%);
+position:static;
+height: 2px;
+top: 55%;
+right: 0;
+transform: translateX(100%);
 }
 
 #Greetings::after {
-  height: 5px;
-  top: 45%;
-  left: 0;
-  transform: translateX(-100%);
+height: 5px;
+top: 45%;
+left: 0;
+transform: translateX(-100%);
 }
 
 
 #Code31 {
-  position: relative;
-  display: flex;
-  align-items: center;
-  font-family: 'Space Mono', monospace;
-  font-weight: lighter;
-  font-size: 100px;
-  transform: translate(50%, 50%);
-  margin: 0;
+position: relative;
+display: flex;
+align-items: center;
+font-family: 'Space Mono', monospace;
+font-weight: lighter;
+font-size: 100px;
+transform: translate(50%, 50%);
+margin: 0;
 }
 
 #Code31::before,
 #Code31::after {
-  content: '';
-  position: absolute;
-  height: 3px; 
-  width: 50%; 
-  background-color: var(--code31-text-color, var(--body-text));
+content: '';
+position: absolute;
+height: 3px; 
+width: 50%; 
+background-color: var(--code31-text-color, var(--body-text));
 }
 
 #Code31::before {
-  top: 50%;
-  right: 100%;
-  transform: translateY(-50%);
+top: 50%;
+right: 100%;
+transform: translateY(-50%);
 }
 
 #Code31::after {
-  top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
-  visibility: hidden;
+top: 50%;
+left: 100%;
+transform: translateY(-50%);
+visibility: hidden;
 }
 */
 .welcome-hero{
@@ -255,7 +251,7 @@ a:hover::before {
   align-items: flex-start;
   flex: 1 0 0;
   align-self: stretch;
-  
+
 }
 
 .isotope:after {
@@ -359,3 +355,72 @@ a:hover::before {
   width: 20px;
   height: 20px;
 }
+
+.profile-container {
+  display: flex;
+  height: inherit;
+}
+.profile {
+  width: 100%;
+
+  filter: grayscale(100%); 
+ transition: all 0.5s ease-out; 
+  display: inline-block;
+  position: relative;
+}
+.harddisk {
+  background: url('../img/Chadisk_img.png') no-repeat right top;
+  background-size: contain;
+}
+
+.peak {
+  background-image: url('../img/Peak_img.jpeg');
+ background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.tong {
+  background: url('../img/Tong_img.jpg');
+ background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+.tong:hover, .peak:hover, .harddisk:hover {
+  filter: none;
+}
+
+.tong:hover .description, .peak:hover .description, .harddisk:hover .description{
+  display: block;
+}
+
+.tong:hover {
+background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Tong_img.jpg');
+    background-size: contain;
+  background-repeat: no-repeat;
+}
+.peak:hover {
+background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Peak_img.jpeg');
+    background-size: contain;
+  background-repeat: no-repeat;
+}
+.harddisk:hover {
+background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Chadisk_img.png');
+    background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.description {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  color: white;
+  padding: var(--input-padding);
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
