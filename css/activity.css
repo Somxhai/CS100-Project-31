@@ -1,5 +1,7 @@
 @import '../css/style.css';
-
+body {
+  overflow: auto;
+}
 .form-hero-container {
   padding: 2rem;
 
@@ -110,4 +112,45 @@
     height: 12rem;
     object-fit: cover;
   } 
+}
+
+.result-container {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  min-height: 32rem;
+}
+
+  .result-title { text-align: center;
+  }
+
+.activity-container {
+  width: 24rem;
+  background-color: white;
+  padding: var(--input-padding);
+  border: 1px solid var(--input-border-color);
+  border-radius: 8px;
+  .activity-img {
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    height: 12rem;
+    object-fit: contain;
+  }
+ .title {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  .divider {
+    height:1px;
+    background-color: var(--input-border-color);
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .author, .date {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
 }
