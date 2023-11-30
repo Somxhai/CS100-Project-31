@@ -1,0 +1,64 @@
+@media screen and (max-width:2560px){
+	.header-text h2::before{width: 120%;}
+    .header-text h2::after {width: 120%;}
+    .isotope-overlay b {font-size:17px;}
+}/*desktop*/
+
+@media screen and (max-width:1440px){
+	.header-text h2::before{width: 120%;}
+    .header-text h2::after {width: 120%;}
+    .isotope-overlay b {font-size:17px;}
+}/*desktop*/
+
+@media screen and (max-width:1024px){
+	.header-text h2::before{width: 120%;}
+    .header-text h2::after {width: 120%;}
+    .isotope-overlay b {font-size:15px;}
+}/*laptop*/
+
+@media screen and (max-width:768px){
+	.welcome-hero {height: 200px;}
+	.isotope .item {max-width: 350px;margin: 0 auto 30px;}
+    .header-text h2::before,.header-text h2::after{visibility: hidden;}
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .home, .activity {
+        width: 100%; 
+        margin: 5px 0; 
+        text-align: center;
+    }
+    h1 {order: 1;}
+    .home {order: 2;}
+    .activity {order: 3;}
+    .isotope-overlay b {font-size:14px;}
+    #Name {
+        text-align: center;
+        color: #c50000;
+      }
+	
+}/*tablets*/
+
+@media screen and (max-width:576px){
+	.welcome-hero {height: 300px;}
+	.isotope .item {max-width: 350px;margin: 0 auto 30px;}
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .home, .activity {
+        width: 100%; 
+        margin: 5px 0; 
+        text-align: center;
+    }
+    h1 {order: 1;}
+    .home {order: 2;}
+    .activity {order: 3;}
+    .isotope-overlay b {font-size:larger;}
+    .header-text h2 {font-size: 45px;}
+}/*phone*/
