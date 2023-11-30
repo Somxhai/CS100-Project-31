@@ -48,12 +48,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.navbar {
-  display: flex;
-  background-color: transparent;
-  justify-content: space-between;
-  padding: 1rem;
-}
+
 nav {
   position: relative;
   overflow: hidden;
@@ -71,13 +66,13 @@ nav a {
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
+
 nav a.home {
   float: left;
 }
 
 nav a.activity {
   float: right;
-  
 }
 
 nav h1 {
