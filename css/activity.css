@@ -2,6 +2,15 @@
 body {
   overflow: auto;
 }
+
+nav a.home:hover{
+  color: #ffffff;
+}
+
+nav a.activity:hover{
+  color: #ffffff;
+}
+
 .form-hero-container {
   padding: 2rem;
 
