@@ -184,7 +184,7 @@ a:hover::before {
   content: "";
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: 190%;
   height: 5px;
   background-color: var(--greetings-text-color, var(--body-text));
 }
@@ -193,7 +193,7 @@ a:hover::before {
   content: "";
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: 190%;
   height: 5px;
   background-color: var(--greetings-text-color, var(--body-text));
 }
@@ -296,17 +296,23 @@ a:hover::before {
   background-image: linear-gradient(rgba(0, 0, 0, 0.600), rgba(0, 0, 0, 0.150));
 }
 
+
 .isotope-overlay b {
   color: #ffffff;
   text-align: left;
   vertical-align: top;
   font-family: Space Mono;
-  font-size: 14px;
+  font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   margin: auto;
   justify-content: flex-end;
+}
+
+#Name {
+  text-align: center;
+  color: #ffffff;
 }
 
 .isotope .item:hover .isotope-overlay{
