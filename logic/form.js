@@ -1,83 +1,59 @@
+import {
+  titleValidation,
+  studentIdValidation,
+  dateValidation,
+  nameValidation,
+  academicYearValidation,
+  contentValidation,
+  imageValidation,
+  typeValidation,
+} from "./validation.js";
 const form = document.getElementById("activity-form");
-const imageInput = document.getElementById("image");
-const validateFormData = (event) => {
-  const formData = new FormData(event.target);
 
-  const title = formData.get("title");
-  const studentId = formData.get("studentId");
-  const date = formData.get("date");
-  const name = formData.get("name");
-  const content = formData.get("content");
-  const image = formData.get("image");
-  const type = formData.get("type"); // formal, casual
+const addYear = () => {
+  const academicYear = document.getElementById("academic-year");
 
-  let validatePass = true;
-  // validation
-  if (title.length == 0) {
-    notifyError("titleError", "โปรดกรอกชื่อกิจกรรม");
-    validatePass = false;
-  }
-
-  if (studentId.length != 10) {
-    notifyError("studentIdError", "โปรดกรอกรหัสนักศึกษา");
-    validatePass = false;
-  } else if (isNaN(parseInt(studentId))) {
-    notifyError("studentIdError", "โปรดกรอกรหัสนักศึกษาที่ถูกต้อง");
-    validatePass = false;
-  }
-  if (content.length == 0) {
-    notifyError("contentError", "โปรดกรอกเนื้อหา");
-  }
-
-  const currentDateTime = new Date();
-  const selectDateTime = new Date(date);
-  if (selectDateTime > currentDateTime) {
-    notifyError("dateError", "เลือกวันเวลาที่ถูกต้อง");
-    validatePass = false;
-  }
-  const spaceBetween = (str) => {
-    const regex = /^(\S+\s{1}\S+)$/;
-    return regex.test(str);
-  };
-  if (name.length == 0 || !spaceBetween(name)) {
-    notifyError("nameError", "โปรดใส่ชื่อให้ถูกต้อง");
-    validatePass = false;
-  }
-  if (type.length == 0) {
-    notifyError("typeError", "โปรดระบุประเภทกิจกรรม");
-    validatePass = false;
-  }
-  return validatePass;
-};
-
-const notifyError = (id, message) => {
-  const errorElement = document.getElementById(id);
-  errorElement.innerHTML = message;
-};
-
-const displayImage = (inputId, previewId) => {
-  const input = document.getElementById(inputId);
-  const preview = document.getElementById(previewId);
-  const file = input.files[0];
-  if (file) {
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-      const imageUrl = e.target.result;
-      preview.src = imageUrl;
-    };
-
-    reader.readAsDataURL(file);
+  academicYear.innerHTML += `<option selected disabled>เลือกชั้นปี</option>`;
+  for (let i = 1; i < 7; i++) {
+    academicYear.innerHTML += `<option value=\"${i}\">ปี ${i}</option>`;
   }
 };
+addYear();
 
-imageInput.addEventListener("change", (event) => {
-  displayImage(event.target.id, "image-display");
-});
+const getValueFromElement = (id) => {
+  const element = document.getElementById(id);
+  if (id == "image" && element) return element.files;
+  if (element) return element.value;
+};
+
+const validateFormData = () => {
+  const title = getValueFromElement("title");
+  const studentId = getValueFromElement("studentId");
+  const date = getValueFromElement("date");
+  const name = getValueFromElement("name");
+  const content = getValueFromElement("content");
+  const academicYear = getValueFromElement("academic-year");
+  const image = getValueFromElement("image");
+  const type = getValueFromElement("type"); // formal, casual
+  let validations = [
+    titleValidation(title),
+    studentIdValidation(studentId),
+    dateValidation(date),
+    nameValidation(name),
+    academicYearValidation(academicYear),
+    contentValidation(content),
+    imageValidation(image[0]),
+    typeValidation(type),
+    studentIdValidation(studentId),
+  ];
+  let isOk = validations.every(() => true);
+
+  return isOk;
+};
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const validateSuccess = validateFormData();
+  const validateSuccess = validateFormData(event);
   if (validateSuccess) {
     // fetch to database
   }
