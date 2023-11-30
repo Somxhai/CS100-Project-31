@@ -1,1 +1,113 @@
+@import '../css/style.css';
 
+.form-hero-container {
+  padding: 2rem;
+
+}
+.form-hero-text {
+  font-size: 7.5rem;
+  letter-spacing: -.035em;
+  line-height: 1.1;
+  margin-left: -.05em;
+  font-weight: normal;
+  padding-bottom: 4rem;
+}
+
+.form-container {
+  display: flex;
+  padding: 2rem;
+  align-items: start;
+
+  justify-content: space-between;
+  gap: 1rem; 
+  .form-text {
+    
+    font-size: 3rem;
+  }
+
+  #activity-form {
+    padding: 0 1rem;
+    min-width: 32rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+  }
+}
+.error {
+  color: red;
+  font-size: 0.8125rem;
+}
+
+.submit-button {
+  padding: 0.8125rem 0.5rem;
+  display: block;
+  cursor: pointer;
+  z-index: 3;
+  margin: 0.5rem auto;
+  background-color: var(--primary); 
+  color: white;
+  border-radius: 8px;
+  min-width: 16rem;
+}
+.input-group {
+  display: block;
+  label {
+    display: block;
+  } 
+
+  input {
+    padding: var(--input-padding);
+    display: block;
+    width: 100%;
+    border-radius: 8px; 
+    outline: none;
+  }
+  select { 
+    display: block;
+    padding: var(--input-padding);
+    background-color: white;
+  }
+
+  textarea {
+    
+    padding: var(--input-padding);
+    display: block;
+    width: 100%;
+    resize: none;
+    overflow-y: auto;
+    height: 16rem;
+  }
+
+  #image {
+    display: none;
+
+  }
+
+  .pick-image-text {
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    left: 50%;
+    z-index: -1;
+    top: 50%;
+  }
+  .image-label {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      cursor: pointer;
+      color: red;
+      padding: 0;
+      font-size: 1rem;
+      text-decoration: underline;
+    }
+  }
+  #image-display {
+    border: 1px dashed var(--input-border-color); 
+    width: 100%;
+    background-color: white;
+    height: 12rem;
+    object-fit: cover;
+  } 
+}
