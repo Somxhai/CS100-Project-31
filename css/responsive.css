@@ -2,18 +2,21 @@
 	.header-text h2::before{width: 120%;}
     .header-text h2::after {width: 120%;}
     .isotope-overlay b {font-size:17px;}
+    body{overflow: hidden;}
 }/*desktop*/
 
 @media screen and (max-width:1440px){
 	.header-text h2::before{width: 120%;}
     .header-text h2::after {width: 120%;}
     .isotope-overlay b {font-size:17px;}
+    body{overflow: hidden;}
 }/*desktop*/
 
 @media screen and (max-width:1024px){
 	.header-text h2::before{width: 120%;}
     .header-text h2::after {width: 120%;}
     .isotope-overlay b {font-size:15px;}
+    body{overflow: hidden;}
 }/*laptop*/
 
 @media screen and (max-width:768px){
@@ -35,10 +38,13 @@
     .home {order: 2;}
     .activity {order: 3;}
     .isotope-overlay b {font-size:14px;}
-    #Name {
-        text-align: center;
-        color: #c50000;
-      }
+    body{overflow: visible;}
+    .harddisk,.tong,.peak{display: block;
+        margin: 0 auto;
+        width: 100%;
+
+    }
+    
 	
 }/*tablets*/
 
@@ -61,4 +67,11 @@
     .activity {order: 3;}
     .isotope-overlay b {font-size:larger;}
     .header-text h2 {font-size: 45px;}
+    .profile-container {grid-template-columns: 1fr;}
+    body{overflow: visible;}
+    .profile-container {height: 200dvh;}
+    .harddisk,.tong,.peak{display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
 }/*phone*/
