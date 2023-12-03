@@ -132,11 +132,12 @@ nav a.activity:hover{
   min-height: 32rem;
 }
 
-  .result-title { text-align: center;
-  }
+.result-title { 
+  text-align: center;
+}
 
 .activity-container {
-  width: 24rem;
+  width: 20rem;
   background-color: white;
   padding: var(--input-padding);
   border: 1px solid var(--input-border-color);
