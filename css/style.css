@@ -105,83 +105,7 @@ a:hover::before {
   bottom: 0;
   height: 100%;
 }
-/*
-.container {
-margin: auto;
-max-height: 100dvh;
-}
 
-
-#Greetings {
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-font-family: 'Space Mono', monospace;
-font-size: 100px;
-transform: translateY(50%);
-margin: 0;
-}
-
-#Greetings::before,
-#Greetings::after {
-content: "";
-position: absolute;
-height: 2px;
-width: 100%;
-top: 50%;
-background-color: var(--greetings-text-color, var(--body-text));
-}
-
-#Greetings::before {
-position:static;
-height: 2px;
-top: 55%;
-right: 0;
-transform: translateX(100%);
-}
-
-#Greetings::after {
-height: 5px;
-top: 45%;
-left: 0;
-transform: translateX(-100%);
-}
-
-
-#Code31 {
-position: relative;
-display: flex;
-align-items: center;
-font-family: 'Space Mono', monospace;
-font-weight: lighter;
-font-size: 100px;
-transform: translate(50%, 50%);
-margin: 0;
-}
-
-#Code31::before,
-#Code31::after {
-content: '';
-position: absolute;
-height: 3px; 
-width: 50%; 
-background-color: var(--code31-text-color, var(--body-text));
-}
-
-#Code31::before {
-top: 50%;
-right: 100%;
-transform: translateY(-50%);
-}
-
-#Code31::after {
-top: 50%;
-left: 100%;
-transform: translateY(-50%);
-visibility: hidden;
-}
-*/
 .welcome-hero{
   display: flex;
   align-items: center;
@@ -285,17 +209,6 @@ visibility: hidden;
   transition: opacity 0.5s; 
 }
 
-.isotope .item .centered {
-  opacity: 1; 
-}
-
-.isotope .item:hover .centered {
-  opacity: 0; 
-}
-
-.isotope .item:hover img{
-  filter: grayscale(0%);
-}
 
 .isotope-overlay{
   position:absolute;
@@ -338,81 +251,42 @@ visibility: hidden;
   color: #ffffff;
 }
 
-.isotope .item:hover .isotope-overlay{
-  -webkit-transform:scale(1);
-  -moz-transform:scale(1);
-  -ms-transform:scale(1);
-  -o-transform:scale(1);
-  transform:scale(1);
-  top:0;
-}
-
 .w-6 {
   width: 20px;
   height: 20px;
 }
 
 .profile-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  display: flex;
   justify-content: center;
-  height: 100dvh;
-  
-
+  height: inherit;
 }
 .profile {
-  display: block;
   width: 100%;
+  cursor: pointer;
   filter: grayscale(100%); 
   transition: all 0.5s ease-out; 
-  display: inline-block;
+  height: 100%;
+  display: inline;
   position: relative;
 }
 .harddisk {
   background: url('../img/Chadisk_img.png'); 
   background-repeat: no-repeat;
   background-size: contain;
-
 }
-
 .peak {
-  
   background-image: url('../img/Peak_img.jpeg');
- background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 
 .tong {
-  
   background: url('../img/Tong_img.jpg');
   background-repeat: no-repeat;
   background-size: contain;
-
-}
-
-.tong:hover, .peak:hover, .harddisk:hover {
-  filter: none;
-  column-gap: 0;
-}
-
-.tong:hover .description, .peak:hover .description, .harddisk:hover .description{
-  display: block;
-}
-
-.tong:hover {
-  background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Tong_img.jpg');
-  background-size:contain;
-  background-repeat: no-repeat;
-}
-.peak:hover {
-background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Peak_img.jpeg');
-    background-size: contain;
-  background-repeat: no-repeat;
-}
-.harddisk:hover {
-background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Chadisk_img.png');
-    background-size: contain;
-  background-repeat: no-repeat;
 }
 
 .description {
@@ -423,9 +297,4 @@ background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), 
   padding: var(--input-padding);
   font-size: 1.2rem;
 }
-
-
-
-
-
 
