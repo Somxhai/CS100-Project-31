@@ -29,11 +29,12 @@ input, select, textarea{
 }
 
 body {
-  overflow-y: hidden;
   font-family: 'Space Mono', monospace;
   background-color: var(--body-bg);
   transition: background-color 0.5s ease-in-out;
+  overflow-y:visible;
 }
+
 
 
 button {
@@ -352,37 +353,46 @@ visibility: hidden;
 }
 
 .profile-container {
-  display: flex;
-  height: inherit;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  height: 100dvh;
+  
+
 }
 .profile {
+  display: block;
   width: 100%;
-
   filter: grayscale(100%); 
- transition: all 0.5s ease-out; 
+  transition: all 0.5s ease-out; 
   display: inline-block;
   position: relative;
 }
 .harddisk {
-  background: url('../img/Chadisk_img.png') no-repeat right top;
+  background: url('../img/Chadisk_img.png'); 
+  background-repeat: no-repeat;
   background-size: contain;
+
 }
 
 .peak {
+  
   background-image: url('../img/Peak_img.jpeg');
  background-repeat: no-repeat;
   background-size: contain;
 }
 
 .tong {
+  
   background: url('../img/Tong_img.jpg');
- background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: contain;
 
 }
 
 .tong:hover, .peak:hover, .harddisk:hover {
   filter: none;
+  column-gap: 0;
 }
 
 .tong:hover .description, .peak:hover .description, .harddisk:hover .description{
@@ -390,8 +400,8 @@ visibility: hidden;
 }
 
 .tong:hover {
-background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Tong_img.jpg');
-    background-size: contain;
+  background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Tong_img.jpg');
+  background-size:contain;
   background-repeat: no-repeat;
 }
 .peak:hover {
