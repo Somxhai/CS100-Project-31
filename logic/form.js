@@ -1,84 +1,111 @@
-const form = document.getElementById("activity-form");
-const imageInput = document.getElementById("image");
-const validateFormData = (event) => {
-  const formData = new FormData(event.target);
+import {
+  titleValidation,
+  studentIdValidation,
+  dateValidation,
+  nameValidation,
+  academicYearValidation,
+  contentValidation,
+  imageValidation,
+  typeValidation,
+} from "./validation.js";
 
-  const title = formData.get("title");
-  const studentId = formData.get("studentId");
-  const date = formData.get("date");
-  const name = formData.get("name");
-  const content = formData.get("content");
-  const image = formData.get("image");
-  const type = formData.get("type"); // formal, casual
+let activities = [];
 
-  let validatePass = true;
-  // validation
-  if (title.length == 0) {
-    notifyError("titleError", "โปรดกรอกชื่อกิจกรรม");
-    validatePass = false;
-  }
-
-  if (studentId.length != 10) {
-    notifyError("studentIdError", "โปรดกรอกรหัสนักศึกษา");
-    validatePass = false;
-  } else if (isNaN(parseInt(studentId))) {
-    notifyError("studentIdError", "โปรดกรอกรหัสนักศึกษาที่ถูกต้อง");
-    validatePass = false;
-  }
-  if (content.length == 0) {
-    notifyError("contentError", "โปรดกรอกเนื้อหา");
-  }
-
-  const currentDateTime = new Date();
-  const selectDateTime = new Date(date);
-  if (selectDateTime > currentDateTime) {
-    notifyError("dateError", "เลือกวันเวลาที่ถูกต้อง");
-    validatePass = false;
-  }
-  const spaceBetween = (str) => {
-    const regex = /^(\S+\s{1}\S+)$/;
-    return regex.test(str);
-  };
-  if (name.length == 0 || !spaceBetween(name)) {
-    notifyError("nameError", "โปรดใส่ชื่อให้ถูกต้อง");
-    validatePass = false;
-  }
-  if (type.length == 0) {
-    notifyError("typeError", "โปรดระบุประเภทกิจกรรม");
-    validatePass = false;
-  }
-  return validatePass;
+const fetchActivities = async (start = 0) => {
+  await fetch(`http://127.0.0.1:3030/records?start=${start}`, {
+    method: "GET",
+  }).then(async (response) => {
+    const latestActivities = await response.json();
+    addActivitiesToPage(latestActivities.data);
+  });
 };
+fetchActivities();
+const addActivitiesToPage = (activities) => {
+  const resultContainer = document.getElementById("result-container");
+  for (const i in activities) {
+    const activity = activities[i];
+    resultContainer.innerHTML += `<section class="activity-container">
+			<img class="activity-img" src=\"http://127.0.0.1:3030/img/${activity.image}\" alt="">
+			<p class="title">${activity.title}</p>
+			<blockquote>
+				${activity.content}
+            </blockquote>
 
-const notifyError = (id, message) => {
-  const errorElement = document.getElementById(id);
-  errorElement.innerHTML = message;
-};
+			<div class="divider">
 
-const displayImage = (inputId, previewId) => {
-  const input = document.getElementById(inputId);
-  const preview = document.getElementById(previewId);
-  const file = input.files[0];
-  if (file) {
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-      const imageUrl = e.target.result;
-      preview.src = imageUrl;
-    };
-
-    reader.readAsDataURL(file);
+			</div>
+			<p class="author">เขียนโดย ${activity.name} ชั้นปีที่ ${activity.academic_year}
+			</p>
+			<p class="date">${activity.date}</p>
+		</section>`;
   }
 };
 
-imageInput.addEventListener("change", (event) => {
-  displayImage(event.target.id, "image-display");
+document.addEventListener("DOMContentLoaded", async () => {
+  addYear();
 });
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const validateSuccess = validateFormData();
-  if (validateSuccess) {
-    // fetch to database
+const form = document.getElementById("activity-form");
+
+const addYear = () => {
+  const academicYear = document.getElementById("academic-year");
+
+  academicYear.innerHTML += `<option selected disabled>เลือกชั้นปี</option>`;
+  for (let i = 1; i < 7; i++) {
+    academicYear.innerHTML += `<option value=\"${i}\">ปี ${i}</option>`;
   }
+};
+
+const getValueFromElement = (id) => {
+  const element = document.getElementById(id);
+  if (id == "image" && element) return element.files;
+  if (element) return element.value;
+};
+
+const validateFormData = () => {
+  const title = getValueFromElement("title");
+  const studentId = getValueFromElement("studentId");
+  const date = getValueFromElement("date");
+  const name = getValueFromElement("name");
+  const content = getValueFromElement("content");
+  const academicYear = getValueFromElement("academic-year");
+  const image = getValueFromElement("image");
+  const type = getValueFromElement("type"); // formal, casual
+  let validations = [
+    titleValidation(title),
+    studentIdValidation(studentId),
+    dateValidation(date),
+    nameValidation(name),
+    academicYearValidation(academicYear),
+    contentValidation(content),
+    imageValidation(image[0]),
+    typeValidation(type),
+    studentIdValidation(studentId),
+  ];
+  let isOk = validations.every((val) => val);
+
+  return isOk;
+};
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const validateSuccess = validateFormData(event);
+  if (!validateSuccess) return;
+  let json = {};
+  let formData = new FormData(event.target);
+  formData.forEach((value, key) => {
+    json[key] = value;
+  });
+  await fetch("http://127.0.0.1:3030/upload", {
+    method: "POST",
+    body: formData,
+  }).then(async (response) => {
+    if (response.status == 200) {
+      try {
+        const newActivity = await response.json();
+        activities = activities.concat(newActivity.data);
+        addActivitiesToPage(newActivity.data);
+      } catch {}
+    }
+  });
 });
