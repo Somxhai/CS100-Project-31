@@ -9,13 +9,12 @@
 	<link href="../css/activity.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/responsive.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-  	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<script src="../css/script.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
 	<nav>
-		<a href="/index.html" class="home" >Home</a>
+		<a href="/index.html" class="home">Home</a>
 		<a href="/html/form.html" class="activity">Activity</a>
 		<h1>Passport</h1>
 	</nav>
@@ -24,20 +23,20 @@
 	</div>
 	<div class="form-container">
 		<span class="form-text">พวกเรารออ่านอยู่นะ</span>
-		<form id="activity-form">
+		<form id="activity-form" method="POST" action="#" enctype="multipart/form-data">
 			<div class="input-group">
 				<label for="name">ชื่อ นามสกุล</label>
-				<input type="text" id="name" value="">
+				<input type="text" name="name" id="name" value="">
 				<p class="error" id="nameError"></p>
 			</div>
 			<div class="input-group">
-				<label for="studentId">รหัสนักศึกษา</label>
-				<input type="text" id="studentId" value="">
+				<label for="student_id">รหัสนักศึกษา</label>
+				<input type="text" name="student_id" id="studentId" value="">
 				<p class="error" id="studentIdError"></p>
 			</div>
 			<div class="input-group">
-				<label for="academic-year">ชั้นปีที่</label>
-				<select id="academic-year" id="academic-year">
+				<label for="academic_year">ชั้นปีที่</label>
+				<select name="academic_year" id="academic-year">
 				</select>
 				<p class="error" id="academicYearError"></p>
 			</div>
@@ -46,7 +45,7 @@
 					<span class="dummy-image-picker">รูปภาพ</span>
 					<button type="button" id="resetImage">รีเซ็ท</button>
 				</div>
-				<input type="file" id="image" accept="image/*">
+				<input type="file" id="image" name="image" accept="image/*">
 				</input>
 				<label for="image">
 					<img id="image-display">
@@ -56,17 +55,17 @@
 			</div>
 			<div class="input-group">
 				<label for="title">ชื่อกิจกรรม</label>
-				<input type="text" id="title" value="">
+				<input type="text" name="title" id="title" value="">
 				<p class="error" id="titleError"></p>
 			</div>
 			<div class="input-group">
 				<label for="date">วันที่</label>
-				<input type="date" id="date" value="">
+				<input type="date" name="date" id="date" value="">
 				<p class="error" id="dateError"></p>
 			</div>
 			<div class="input-group">
 				<label for="type">ประเภท</label>
-				<select id="type">
+				<select name="type" id="type">
 					<option disabled selected>เลือกประเภทกิจกรรม</option>
 					<option value="formal">ทางการ</option>
 					<option value="casual">ไม่เป็นทางการ</option>
@@ -75,7 +74,7 @@
 			</div>
 			<div class="input-group">
 				<label for="content">เนื้อหา</label>
-				<textarea id="content"></textarea>
+				<textarea name="content" id="content"></textarea>
 				<p class="error" id="contentError"></p>
 			</div>
 			<button type="submit" class="submit-button">ยืนยัน</button>
@@ -83,87 +82,10 @@
 	</div>
 
 	<h1 class="result-title">กิจกรรมต่าง ๆ</h1>
-	<section class="result-container">
-		<section class="activity-container">
-			<img class="activity-img" src="../img/Tong_img.jpg" alt="">
-			<p class="title">XD EIEI</p>
-			<blockquote>
-				แม้ว่าภาษาไทยจะเป็นภาษาที่มีระบบภาคเสียงและไวยากรณ์ที่ซับซ้อน,
-				มันก็เป็นภาษาที่สวยงามและมีความหลากหลาย.
-				คำศัพท์และวลีในภาษาไทยบ่งบอกถึงประวัติศาสตร์, วัฒนธรรม, และทัศนคติของคนไทย.
-				การพูดภาษาไทยอาจทำให้คุณเข้าใจได้ถึงสภาพความคิดและความรู้สึกของคนไทยต่อสิ่งต่าง ๆ ในชีวิตประจำวัน.
-				นอกจากนี้,
-				การเรียนรู้ภาษาไทยยังสามารถเป็นทางเลือกที่น่าสนใจในการเข้าใจวัฒนธรรมที่หลากหลายและการสื่อสารกับคนไทยในทุกๆ
-				มิติของชีวิต.แม้ว่าภาษาไทยจะเป็นภาษาที่มีระบบภาคเสียงและไวยากรณ์ที่ซับซ้อน,
-				มันก็เป็นภาษาที่สวยงามและมีความหลากหลาย. คำศัพท์และวลีในภาษาไทยบ่งบอกถึงประวัติศาสตร์, วัฒนธรรม,
-				และทัศนคติของคนไทย. การพูดภาษาไทยอาจทำให้คุณเข้าใจได้ถึงสภาพความคิดและความรู้สึกของคนไทยต่อสิ่งต่าง
-				ๆ
-				ในชีวิตประจำวัน. นอกจากนี้,
-				การเรียนรู้ภาษาไทยยังสามารถเป็นทางเลือกที่น่าสนใจในการเข้าใจวัฒนธรรมที่หลากหลายและการสื่อสารกับคนไทยในทุกๆ
-				มิติของชีวิต.
-			</blockquote>
+	<section class="result-container" id="result-container">
 
-			<div class="divider">
-
-			</div>
-			<p class="author">เขียนโดย นายก นามสกุลข ชั้นปีที่ 1
-			</p>
-			<p class="date">DATE</p>
-		</section>
-
-		<section class="activity-container">
-			<img class="activity-img" src="../img/Tong_img.jpg" alt="">
-			<p class="title">XD EIEI</p>
-			<blockquote>
-				แม้ว่าภาษาไทยจะเป็นภาษาที่มีระบบภาคเสียงและไวยากรณ์ที่ซับซ้อน,
-				มันก็เป็นภาษาที่สวยงามและมีความหลากหลาย.
-				คำศัพท์และวลีในภาษาไทยบ่งบอกถึงประวัติศาสตร์, วัฒนธรรม, และทัศนคติของคนไทย.
-				การพูดภาษาไทยอาจทำให้คุณเข้าใจได้ถึงสภาพความคิดและความรู้สึกของคนไทยต่อสิ่งต่าง ๆ ในชีวิตประจำวัน.
-				นอกจากนี้,
-				การเรียนรู้ภาษาไทยยังสามารถเป็นทางเลือกที่น่าสนใจในการเข้าใจวัฒนธรรมที่หลากหลายและการสื่อสารกับคนไทยในทุกๆ
-				มิติของชีวิต.แม้ว่าภาษาไทยจะเป็นภาษาที่มีระบบภาคเสียงและไวยากรณ์ที่ซับซ้อน,
-				มันก็เป็นภาษาที่สวยงามและมีความหลากหลาย. คำศัพท์และวลีในภาษาไทยบ่งบอกถึงประวัติศาสตร์, วัฒนธรรม,
-				และทัศนคติของคนไทย. การพูดภาษาไทยอาจทำให้คุณเข้าใจได้ถึงสภาพความคิดและความรู้สึกของคนไทยต่อสิ่งต่าง
-				ๆ
-				ในชีวิตประจำวัน. นอกจากนี้,
-				การเรียนรู้ภาษาไทยยังสามารถเป็นทางเลือกที่น่าสนใจในการเข้าใจวัฒนธรรมที่หลากหลายและการสื่อสารกับคนไทยในทุกๆ
-				มิติของชีวิต.
-			</blockquote>
-
-			<div class="divider">
-
-			</div>
-			<p class="author">เขียนโดย นายก นามสกุลข ชั้นปีที่ 1
-			</p>
-			<p class="date">DATE</p>
-		</section>
-		<section class="activity-container">
-			<img class="activity-img" src="../img/Tong_img.jpg" alt="">
-			<p class="title">XD EIEI</p>
-			<blockquote>
-				แม้ว่าภาษาไทยจะเป็นภาษาที่มีระบบภาคเสียงและไวยากรณ์ที่ซับซ้อน,
-				มันก็เป็นภาษาที่สวยงามและมีความหลากหลาย.
-				คำศัพท์และวลีในภาษาไทยบ่งบอกถึงประวัติศาสตร์, วัฒนธรรม, และทัศนคติของคนไทย.
-				การพูดภาษาไทยอาจทำให้คุณเข้าใจได้ถึงสภาพความคิดและความรู้สึกของคนไทยต่อสิ่งต่าง ๆ ในชีวิตประจำวัน.
-				นอกจากนี้,
-				การเรียนรู้ภาษาไทยยังสามารถเป็นทางเลือกที่น่าสนใจในการเข้าใจวัฒนธรรมที่หลากหลายและการสื่อสารกับคนไทยในทุกๆ
-				มิติของชีวิต.แม้ว่าภาษาไทยจะเป็นภาษาที่มีระบบภาคเสียงและไวยากรณ์ที่ซับซ้อน,
-				มันก็เป็นภาษาที่สวยงามและมีความหลากหลาย. คำศัพท์และวลีในภาษาไทยบ่งบอกถึงประวัติศาสตร์, วัฒนธรรม,
-				และทัศนคติของคนไทย. การพูดภาษาไทยอาจทำให้คุณเข้าใจได้ถึงสภาพความคิดและความรู้สึกของคนไทยต่อสิ่งต่าง
-				ๆ
-				ในชีวิตประจำวัน. นอกจากนี้,
-				การเรียนรู้ภาษาไทยยังสามารถเป็นทางเลือกที่น่าสนใจในการเข้าใจวัฒนธรรมที่หลากหลายและการสื่อสารกับคนไทยในทุกๆ
-				มิติของชีวิต.
-			</blockquote>
-
-			<div class="divider">
-
-			</div>
-			<p class="author">เขียนโดย นายก นามสกุลข ชั้นปีที่ 1
-			</p>
-			<p class="date">DATE</p>
-		</section>
 	</section>
+
 </body>
 
 <script type="module" src="../logic/validation.js"></script>
