@@ -1,6 +1,4 @@
 const items = document.querySelectorAll(".item");
-const navHome = document.querySelector("nav a.home");
-const navActivity = document.querySelector("nav a.activity");
 const navH1 = document.querySelector("nav h1");
 
 const onProfileSelect = (item) => {
@@ -17,8 +15,6 @@ const onProfileSelect = (item) => {
     "--code31-text-color",
     `var(${textColor})`,
   );
-  navHome.style.color = `var(${textColor})`;
-  navActivity.style.color = `var(${textColor})`;
   navH1.style.color = `var(${textColor})`;
 };
 
@@ -28,9 +24,8 @@ const onProfileUnSelect = () => {
   document.getElementById("Code31").style.color = "";
   document.documentElement.style.removeProperty("--greetings-text-color");
   document.documentElement.style.removeProperty("--code31-text-color");
-  navHome.style.color = "var(--body-text)";
-  navActivity.style.color = "var(--body-text)";
   navH1.style.color = "var(--body-text)";
+  
 };
 document.addEventListener("DOMContentLoaded", function () {
   items.forEach((item) => {

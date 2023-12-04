@@ -1,27 +1,23 @@
 @media screen and (max-width:2560px){
 	.header-text h2::before{width: 120%;}
     .header-text h2::after {width: 120%;}
-    .isotope-overlay b {font-size:17px;}
     body{overflow: hidden;}
 }/*desktop*/
 
 @media screen and (max-width:1440px){
 	.header-text h2::before{width: 120%;}
     .header-text h2::after {width: 120%;}
-    .isotope-overlay b {font-size:17px;}
     body{overflow: hidden;}
 }/*desktop*/
 
 @media screen and (max-width:1024px){
 	.header-text h2::before{width: 120%;}
     .header-text h2::after {width: 120%;}
-    .isotope-overlay b {font-size:15px;}
     body{overflow: hidden;}
 }/*laptop*/
 
 @media screen and (max-width:768px){
 	.welcome-hero {height: 200px;}
-	.isotope .item {max-width: 350px;margin: 0 auto 30px;}
     .header-text h2::before,.header-text h2::after{visibility: hidden;}
     nav {
         display: flex;
@@ -37,20 +33,15 @@
     h1 {order: 1;}
     .home {order: 2;}
     .activity {order: 3;}
-    .isotope-overlay b {font-size:14px;}
-    body{overflow: visible;}
-    .harddisk,.tong,.peak{display: block;
-        margin: 0 auto;
-        width: 100%;
-
+    body{overflow-y: visible;}
+    .profile-container{
+        flex-wrap: wrap;
     }
-    
 	
 }/*tablets*/
 
 @media screen and (max-width:576px){
 	.welcome-hero {height: 300px;}
-	.isotope .item {max-width: 350px;margin: 0 auto 30px;}
     nav {
         display: flex;
         flex-direction: column;
@@ -67,11 +58,9 @@
     .activity {order: 3;}
     .isotope-overlay b {font-size:larger;}
     .header-text h2 {font-size: 45px;}
-    .profile-container {grid-template-columns: 1fr;}
-    body{overflow: visible;}
-    .profile-container {height: 200dvh;}
-    .harddisk,.tong,.peak{display: block;
-        margin: 0 auto;
-        width: 100%;
+    body{overflow-y: visible;}
+    .profile-container{
+        flex-wrap: wrap;
     }
+    
 }/*phone*/
