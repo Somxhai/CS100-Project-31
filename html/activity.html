@@ -5,8 +5,8 @@
 	<title>Activity</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 	<link href="../css/activity.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../css/responsive_activity.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,12 +26,12 @@
 		<form id="activity-form" method="POST" action="#" enctype="multipart/form-data">
 			<div class="input-group">
 				<label for="name">ชื่อ นามสกุล</label>
-				<input type="text" name="name" id="name" value="">
+				<input type="text" name="name" value="">
 				<p class="error" id="nameError"></p>
 			</div>
 			<div class="input-group">
 				<label for="student_id">รหัสนักศึกษา</label>
-				<input type="text" name="student_id" id="studentId" value="">
+				<input type="text" name="student_id" value="">
 				<p class="error" id="studentIdError"></p>
 			</div>
 			<div class="input-group">
@@ -45,7 +45,7 @@
 					<span class="dummy-image-picker">รูปภาพ</span>
 					<button type="button" id="resetImage">รีเซ็ท</button>
 				</div>
-				<input type="file" id="image" name="image" accept="image/*">
+				<input type="file" name="image" id="image" accept="image/*">
 				</input>
 				<label for="image">
 					<img id="image-display">
@@ -55,17 +55,17 @@
 			</div>
 			<div class="input-group">
 				<label for="title">ชื่อกิจกรรม</label>
-				<input type="text" name="title" id="title" value="">
+				<input type="text" name="title" value="">
 				<p class="error" id="titleError"></p>
 			</div>
 			<div class="input-group">
 				<label for="date">วันที่</label>
-				<input type="date" name="date" id="date" value="">
+				<input type="date" name="date" value="">
 				<p class="error" id="dateError"></p>
 			</div>
 			<div class="input-group">
 				<label for="type">ประเภท</label>
-				<select name="type" id="type">
+				<select name="type">
 					<option disabled selected>เลือกประเภทกิจกรรม</option>
 					<option value="formal">ทางการ</option>
 					<option value="casual">ไม่เป็นทางการ</option>
@@ -74,7 +74,7 @@
 			</div>
 			<div class="input-group">
 				<label for="content">เนื้อหา</label>
-				<textarea name="content" id="content"></textarea>
+				<textarea name="content"></textarea>
 				<p class="error" id="contentError"></p>
 			</div>
 			<button type="submit" class="submit-button">ยืนยัน</button>

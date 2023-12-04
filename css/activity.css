@@ -1,8 +1,8 @@
 @import '../css/style.css';
-body {
-  overflow: auto;
+html, body {
+  height: 100%;
+  overflow-x: hidden;
 }
-
 nav a.home:hover{
   color: #ffffff;
 }
@@ -30,18 +30,18 @@ nav a.activity:hover{
   align-items: start;
   justify-content: space-between;
   gap: 1rem; 
- 
-  #activity-form {
-    width: 100%; 
-    max-width: 32rem; 
-    padding: 0 1rem;
-    min-width: 32rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
 
-  }
 }
+#activity-form {
+  max-width: 32rem; 
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  display: block;
+  gap: 0.7rem;
+
+}
+
 .error {
   color: red;
   font-size: 0.8125rem;
@@ -60,64 +60,69 @@ nav a.activity:hover{
 }
 .input-group {
   display: block;
-  label {
+
+}
+ .input-group label {
     display: block;
   } 
 
-  input {
-    padding: var(--input-padding);
-    display: block;
-    width: 100%;
-    border-radius: 8px; 
-    outline: none;
-  }
-  select { 
-    display: block;
-    padding: var(--input-padding);
-    background-color: white;
-  }
 
-  textarea {
-    
-    padding: var(--input-padding);
-    display: block;
-    width: 100%;
-    resize: none;
-    overflow-y: auto;
-    height: 16rem;
-  }
+.input-group input {
+  padding: var(--input-padding);
+  display: block;
+  width: 100%;
+  border-radius: 8px; 
+  outline: none;
+}
+.input-group select { 
+  display: block;
+  padding: var(--input-padding);
+  background-color: white;
+}
 
-  #image {
-    display: none;
+.input-group textarea {
 
-  }
+  padding: var(--input-padding);
+  display: block;
+  width: 100%;
+  resize: none;
+  overflow-y: auto;
+  height: 16rem;
+}
 
-  .pick-image-text {
-    position: absolute;
-    transform: translate(-50%, -50%); 
-    left: 50%;
-    z-index: -1;
-    top: 50%;
-  }
-  .image-label {
-    display: flex;
-    gap: 0.5rem;
+.input-group #image {
+  display: none;
 
-    button {
-      cursor: pointer;
-      color: red;
-      padding: 0;
-      font-size: 1rem;
-      text-decoration: underline;
-    }
-  }
-  #image-display {
-    border: 1px dashed var(--input-border-color); 
-    width: 100%;
-    background-color: white;
-    height: 12rem;
-    object-fit: cover;
-  } 
+}
+
+.input-group .pick-image-text {
+  position: absolute;
+  transform: translate(-50%, -50%); 
+  left: 50%;
+  z-index: -1;
+  top: 50%;
+}
+.input-group .image-label {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button[id="resetImage"] {
+  cursor: pointer;
+  color: red;
+  padding: 0;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+.input-group #image-display {
+  border: 1px dashed var(--input-border-color); 
+  width: 100%;
+  max-width: 80%;
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+  height: 12rem;
+  object-fit: cover;
 }
 
 .result-container {
@@ -139,32 +144,34 @@ nav a.activity:hover{
   padding: var(--input-padding);
   border: 1px solid var(--input-border-color);
   border-radius: 8px;
-  .activity-img {
-    margin: 0 auto;
-    display: block;
-    width: auto;
-    height: 12rem;
-    object-fit: contain;
-  }
-  blockquote {
-    word-wrap: break-word;
-    width: 100%;
-  }
- .title {
-    text-align: center;
-    font-size: 1.2rem;
-    overflow: hidden;
-    max-lines: 1;
-    text-overflow: ellipsis;
-  }
-  .divider {
-    height:1px;
-    background-color: var(--input-border-color);
-    width: 100%;
-    margin: 1rem 0;
-  }
-  .author, .date {
-    font-size: 0.8125rem;
-    color: var(--text-muted);
-  }
 }
+
+.activity-container .activity-img {
+  margin: 0 auto;
+  display: block;
+  width: auto;
+  height: 12rem;
+  object-fit: contain;
+}
+.activity-container blockquote {
+  word-wrap: break-word;
+  width: 100%;
+}
+.activity-container .title {
+  text-align: center;
+  font-size: 1.2rem;
+  overflow: hidden;
+  max-lines: 1;
+  text-overflow: ellipsis;
+}
+.activity-container .divider {
+  height:1px;
+  background-color: var(--input-border-color);
+  width: 100%;
+  margin: 1rem 0;
+}
+.activity-container .author, .activity-container .date {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
