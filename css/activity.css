@@ -134,7 +134,7 @@ nav a.activity:hover{
 }
 
 .activity-container {
-  width: 20rem;
+  width: 28rem;
   background-color: white;
   padding: var(--input-padding);
   border: 1px solid var(--input-border-color);
@@ -146,9 +146,16 @@ nav a.activity:hover{
     height: 12rem;
     object-fit: contain;
   }
+  blockquote {
+    word-wrap: break-word;
+    width: 100%;
+  }
  .title {
     text-align: center;
     font-size: 1.2rem;
+    overflow: hidden;
+    max-lines: 1;
+    text-overflow: ellipsis;
   }
   .divider {
     height:1px;
