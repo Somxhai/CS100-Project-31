@@ -25,7 +25,6 @@ const onProfileUnSelect = () => {
   document.documentElement.style.removeProperty("--greetings-text-color");
   document.documentElement.style.removeProperty("--code31-text-color");
   navH1.style.color = "var(--body-text)";
-  
 };
 document.addEventListener("DOMContentLoaded", function () {
   items.forEach((item) => {
@@ -36,15 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
       let itemsList = Array.from(items);
       if (event.target.getAttribute("active") == "false") {
         // click to other profile while the previous one is already actived
-        let someActived = itemsList.some(
-          (i) => i.getAttribute("active") == "true",
+        const someActived = itemsList.some(
+          (i) => i.getAttribute("active") === "true",
         );
+        console.log(someActived);
         if (someActived) {
-          items.forEach((x) => {
-            if (x.className != item.className) {
-              x.setAttribute("active", "false");
-              x.style.filter = "grayscale(100%)";
-              const otherProfileDescription = x.querySelector(".description");
+          items.forEach((i) => {
+            if (i.id != item.id) {
+              i.setAttribute("active", "false");
+              i.style.filter = "grayscale(100%)";
+              const otherProfileDescription = i.querySelector(".description");
               otherProfileDescription.style.display = "none";
             }
           });
@@ -54,15 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
         onProfileSelect(item);
         item.style.filter = "grayscale(0%)";
         descriptionElement.style.display = "block";
-      } else {
-        descriptionElement.style.display = "none";
-        item.style.filter = "grayscale(100%)";
-
-        event.target.setAttribute("active", "false");
-        onProfileUnSelect();
+        return;
       }
+      descriptionElement.style.display = "none";
+      item.style.filter = "grayscale(100%)";
 
-      // set grayscale for every
+      event.target.setAttribute("active", "false");
+      onProfileUnSelect();
     });
   });
 });
