@@ -11,7 +11,7 @@ import {
 
 let activities = [];
 
-const ip = "http://3.94.255.158";
+const ip = `http://${window.location.hostname}:${port}`;
 
 const fetchActivities = async (start = 0) => {
   await fetch(`${ip}/records?start=${start}`, {
