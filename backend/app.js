@@ -17,6 +17,8 @@ export const app = Fastify({
 app.register(cors, {
   origin: "*",
   methods: ["POST", "GET"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 });
 app.register(multipart, {
   limits: {
@@ -31,7 +33,7 @@ app.register(fastifyStatic, {
 
 app.get("/records:start", async (request, reply) => {
   const start = parseInt(request.query.start ?? 0);
-  let result = [];
+  const result = [];
   try {
     const recordsFile = fs.readFileSync("./db/records.json");
     const records = JSON.parse(recordsFile);
@@ -56,7 +58,7 @@ app.post("/upload", async function (request, reply) {
   } catch (err) {
     // Handle possible errors like file not existing
   }
-  let latestRecord = {};
+  const latestRecord = {};
   for await (const part of parts) {
     if (part.type === "file") {
       // upload and save the file
