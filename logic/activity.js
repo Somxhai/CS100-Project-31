@@ -18,10 +18,10 @@ const fetchActivities = async (start = 0) => {
     method: "GET",
   }).then(async (response) => {
     const latestActivities = await response.json();
+    console.log(latestActivities.data);
     addActivitiesToPage(latestActivities.data);
   });
 };
-fetchActivities();
 const addActivitiesToPage = (activities) => {
   const resultContainer = document.getElementById("result-container");
   for (const i in activities) {
@@ -43,10 +43,6 @@ const addActivitiesToPage = (activities) => {
   }
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-  addYear();
-});
-
 const form = document.getElementById("activity-form");
 
 const addYear = () => {
@@ -58,46 +54,37 @@ const addYear = () => {
   }
 };
 
-const getValueFromElement = (id) => {
-  const element = document.getElementById(id);
-  if (id === "image" && element) return element.files;
-  if (element) return element.value;
-};
-
 const validateFormData = () => {
-  const title = getValueFromElement("title");
-  const studentId = getValueFromElement("studentId");
-  const date = getValueFromElement("date");
-  const name = getValueFromElement("name");
-  const content = getValueFromElement("content");
-  const academicYear = getValueFromElement("academic-year");
-  const image = getValueFromElement("image");
-  const type = getValueFromElement("type"); // formal, casual
+  const formData = getFormData();
   const validations = [
-    titleValidation(title),
-    studentIdValidation(studentId),
-    dateValidation(date),
-    nameValidation(name),
-    academicYearValidation(academicYear),
-    contentValidation(content),
-    imageValidation(image[0]),
-    typeValidation(type),
-    studentIdValidation(studentId),
+    titleValidation(formData.title),
+    studentIdValidation(formData.studentId),
+    dateValidation(formData.date),
+    nameValidation(formData.name),
+    academicYearValidation(formData.academicYear),
+    contentValidation(formData.content),
+    imageValidation(formData.image),
+    typeValidation(formData.type),
+    studentIdValidation(formData.studentId),
   ];
   const isOk = validations.every((val) => val);
 
   return isOk;
 };
-
+const getFormData = () => {
+  const json = {};
+  const formData = new FormData(form);
+  for (const [key, value] of formData) {
+    json[key] = value;
+  }
+  return json;
+};
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const validateSuccess = validateFormData(event);
   if (!validateSuccess) return;
-  const json = {};
+
   const formData = new FormData(event.target);
-  for (const [value, key] of formData) {
-    json[key] = value;
-  }
   await fetch(`${ip}/upload`, {
     method: "POST",
     body: formData,
@@ -111,3 +98,8 @@ form.addEventListener("submit", async (event) => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", async () => {
+  addYear();
+});
+
+await fetchActivities();

@@ -16,7 +16,8 @@ const setPreviewImage = (file) => {
     reader.readAsDataURL(file);
     return;
   }
-  preview.src = "";
+  preview.src =
+    "https://wallpapers.com/images/hd/blank-white-background-xbsfzsltjksfompa.jpg";
 };
 
 const resetImage = () => {
