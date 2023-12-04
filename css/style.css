@@ -18,7 +18,6 @@
 * {
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
 }
 
@@ -28,14 +27,14 @@ input, select, textarea{
   border-radius: 8px;
 }
 
+body, html {
+  height: 100dvh;
+}
 body {
   font-family: 'Space Mono', monospace;
   background-color: var(--body-bg);
   transition: background-color 0.5s ease-in-out;
-  overflow-y:visible;
 }
-
-
 
 button {
   border: none;
@@ -48,12 +47,11 @@ a {
 
 nav {
   position: relative;
-  overflow: hidden;
 }
 
 nav a {
+  color: var(--greetings-text-color, var(--body-text));
   float: left;
-  color: var(--body-text);
   padding: 14px 16px;
   text-decoration: none;
   font-size: 20px;
@@ -63,13 +61,20 @@ nav a {
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
-
 nav a.home {
   float: left;
 }
 
 nav a.activity {
   float: right;
+}
+
+nav a.home:hover{
+  color: var(--body-bg);
+}
+
+nav a.activity:hover{
+  color: var(--body-bg);
 }
 
 nav h1 {
@@ -87,6 +92,7 @@ a {
   text-decoration: none;
   font-weight: 700;
   position: relative;
+
 }
 
 a::before {
@@ -105,91 +111,15 @@ a:hover::before {
   bottom: 0;
   height: 100%;
 }
-/*
-.container {
-margin: auto;
-max-height: 100dvh;
-}
 
-
-#Greetings {
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-font-family: 'Space Mono', monospace;
-font-size: 100px;
-transform: translateY(50%);
-margin: 0;
-}
-
-#Greetings::before,
-#Greetings::after {
-content: "";
-position: absolute;
-height: 2px;
-width: 100%;
-top: 50%;
-background-color: var(--greetings-text-color, var(--body-text));
-}
-
-#Greetings::before {
-position:static;
-height: 2px;
-top: 55%;
-right: 0;
-transform: translateX(100%);
-}
-
-#Greetings::after {
-height: 5px;
-top: 45%;
-left: 0;
-transform: translateX(-100%);
-}
-
-
-#Code31 {
-position: relative;
-display: flex;
-align-items: center;
-font-family: 'Space Mono', monospace;
-font-weight: lighter;
-font-size: 100px;
-transform: translate(50%, 50%);
-margin: 0;
-}
-
-#Code31::before,
-#Code31::after {
-content: '';
-position: absolute;
-height: 3px; 
-width: 50%; 
-background-color: var(--code31-text-color, var(--body-text));
-}
-
-#Code31::before {
-top: 50%;
-right: 100%;
-transform: translateY(-50%);
-}
-
-#Code31::after {
-top: 50%;
-left: 100%;
-transform: translateY(-50%);
-visibility: hidden;
-}
-*/
 .welcome-hero{
   display: flex;
   align-items: center;
   justify-content: center;
   position:relative;
   background-size:cover;
+  padding: 3rem 0;
   background-position: center;
-  height:300px;
 }
 
 .header-text h2  {
@@ -231,201 +161,36 @@ visibility: hidden;
   transform: translateX(85%);
 }
 
-
-
-.myfavorite {
-  max-width: 100dvh;
-  margin: auto;
-  padding: 10px 0 50px; 
-}
-
-.myfavorite-content {
-  max-width: 100dvh;
-}
-
-.row {
-  align-items: flex-start;
-  flex: 1 0 0;
-  align-self: stretch;
-
-}
-
-.isotope:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.isotope .item {
-  position:relative;
-  overflow:hidden;
-}
-
-.isotope .item img{
-  width:100%;
-  height:100%;
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  -ms-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s;
-  filter: grayscale(100%);
-}
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #ffffff;
-  font-family: 'Space Mono', monospace;
-  font-size: x-large;
-  font-weight: 400;
-  line-height: normal;
-  opacity: 0; 
-  transition: opacity 0.5s; 
-}
-
-.isotope .item .centered {
-  opacity: 1; 
-}
-
-.isotope .item:hover .centered {
-  opacity: 0; 
-}
-
-.isotope .item:hover img{
-  filter: grayscale(0%);
-}
-
-.isotope-overlay{
-  position:absolute;
-  height:100%;
-  width:100%;
-  display:flex;
-  align-items:top;
-  text-transform: uppercase;
-  justify-content:center;
-  flex-direction:row;
-  -webkit-transform:scale(0);
-  -moz-transform:scale(0);
-  -ms-transform:scale(0);
-  -o-transform:scale(0);
-  transform:scale(0);
-  -webkit-transition: .5s;
-  -moz-transition: .5s;
-  -ms-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.600), rgba(0, 0, 0, 0.150));
-}
-
-
-.isotope-overlay b {
-  color: #ffffff;
-  text-align: left;
-  vertical-align: top;
-  font-family: Space Mono;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: auto;
-  justify-content: flex-end;
-}
-
-#Name {
-  text-align: center;
-  color: #ffffff;
-}
-
-.isotope .item:hover .isotope-overlay{
-  -webkit-transform:scale(1);
-  -moz-transform:scale(1);
-  -ms-transform:scale(1);
-  -o-transform:scale(1);
-  transform:scale(1);
-  top:0;
-}
-
 .w-6 {
   width: 20px;
   height: 20px;
 }
 
 .profile-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  justify-content: center;
-  height: 100dvh;
-  
-
+  display: flex;
+  flex: 1;
 }
+
 .profile {
+  display: flex;
+  flex: 1 1 0;
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+.profile img{
+  max-width: 100%;
   display: block;
-  width: 100%;
-  filter: grayscale(100%); 
-  transition: all 0.5s ease-out; 
-  display: inline-block;
-  position: relative;
+  pointer-events: none;
 }
-.harddisk {
-  background: url('../img/Chadisk_img.png'); 
-  background-repeat: no-repeat;
-  background-size: contain;
-
-}
-
-.peak {
-  
-  background-image: url('../img/Peak_img.jpeg');
- background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.tong {
-  
-  background: url('../img/Tong_img.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-
-}
-
-.tong:hover, .peak:hover, .harddisk:hover {
-  filter: none;
-  column-gap: 0;
-}
-
-.tong:hover .description, .peak:hover .description, .harddisk:hover .description{
-  display: block;
-}
-
-.tong:hover {
-  background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Tong_img.jpg');
-  background-size:contain;
-  background-repeat: no-repeat;
-}
-.peak:hover {
-background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Peak_img.jpeg');
-    background-size: contain;
-  background-repeat: no-repeat;
-}
-.harddisk:hover {
-background: linear-gradient(180deg, rgba(30, 30, 30, 0.8), rgba(0, 0, 0, 0.2)), url('../img/Chadisk_img.png');
-    background-size: contain;
-  background-repeat: no-repeat;
-}
-
 .description {
   display: none;
   position: absolute;
   z-index: 3;
+  pointer-events: none;
   color: white;
   padding: var(--input-padding);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  top: 0;
 }
-
-
-
-
-
 
