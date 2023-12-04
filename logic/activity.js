@@ -10,7 +10,7 @@ import {
 } from "./validation.js";
 
 let activities = [];
-
+const port = "3030";
 const ip = `http://${window.location.hostname}:${port}`;
 
 const fetchActivities = async (start = 0) => {
@@ -58,14 +58,13 @@ const validateFormData = () => {
   const formData = getFormData();
   const validations = [
     titleValidation(formData.title),
-    studentIdValidation(formData.studentId),
+    studentIdValidation(formData.student_id),
     dateValidation(formData.date),
     nameValidation(formData.name),
-    academicYearValidation(formData.academicYear),
+    academicYearValidation(formData.academic_year),
     contentValidation(formData.content),
     imageValidation(formData.image),
     typeValidation(formData.type),
-    studentIdValidation(formData.studentId),
   ];
   const isOk = validations.every((val) => val);
 

@@ -1,5 +1,5 @@
 const titleValidation = (title) => {
-  const isPass = title !== undefined && title.length != 0;
+  const isPass = title !== undefined && title.length !== 0;
   if (!isPass) {
     notifyError("titleError", "โปรดกรอกชื่อกิจกรรม");
   } else {
@@ -9,7 +9,7 @@ const titleValidation = (title) => {
 };
 
 const contentValidation = (content) => {
-  const isPass = content != null && content.length != 0;
+  const isPass = content != null && content.length !== 0;
   if (!isPass) {
     notifyError("contentError", "เล่ากิจกรรมให้เราฟังหน่อยไหม");
   } else {
@@ -19,7 +19,7 @@ const contentValidation = (content) => {
 };
 
 const imageValidation = (image) => {
-  const isPass = image != undefined;
+  const isPass = image !== undefined;
   if (!isPass) {
     notifyError("imageError", "โปรดระบุรูปภาพ");
   } else {
@@ -39,7 +39,7 @@ const academicYearValidation = (academicYear) => {
 };
 
 const studentIdValidation = (studentId) => {
-  const isPass = studentId !== undefined && studentId.length == 10;
+  const isPass = studentId !== undefined && studentId.length === 10;
   if (!isPass) {
     notifyError("studentIdError", "โปรดกรอกรหัสนักศึกษาท่ถูกต้อง");
   } else {
@@ -49,10 +49,10 @@ const studentIdValidation = (studentId) => {
 };
 
 const dateValidation = (dateString) => {
-  const currentDateTime = new Date();
+  const currentDateTime = Date.now();
   const selectDateTime = new Date(dateString);
 
-  const isPass = selectDateTime <= currentDateTime && date.length != 0;
+  const isPass = selectDateTime <= currentDateTime;
   if (!isPass) {
     notifyError("dateError", "เลือกวันที่ถูกต้อง");
   } else {
@@ -75,7 +75,7 @@ const nameValidation = (name) => {
 };
 
 const typeValidation = (type) => {
-  const isPass = type != undefined;
+  const isPass = type !== undefined;
   if (!isPass) {
     notifyError("typeError", "โปรดระบุประเภทกิจกรรม");
   } else {
