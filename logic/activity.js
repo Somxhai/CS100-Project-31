@@ -52,7 +52,7 @@ const form = document.getElementById("activity-form");
 const addYear = () => {
   const academicYear = document.getElementById("academic-year");
 
-  academicYear.innerHTML += `<option selected disabled>เลือกชั้นปี</option>`;
+  academicYear.innerHTML += "<option selected disabled>เลือกชั้นปี</option>";
   for (let i = 1; i < 7; i++) {
     academicYear.innerHTML += `<option value=\"${i}\">ปี ${i}</option>`;
   }
@@ -60,7 +60,7 @@ const addYear = () => {
 
 const getValueFromElement = (id) => {
   const element = document.getElementById(id);
-  if (id == "image" && element) return element.files;
+  if (id === "image" && element) return element.files;
   if (element) return element.value;
 };
 
@@ -98,7 +98,7 @@ form.addEventListener("submit", async (event) => {
   for (const [value, key] of formData) {
     json[key] = value;
   }
-  await fetch("${ip}/upload", {
+  await fetch(`${ip}/upload`, {
     method: "POST",
     body: formData,
   }).then(async (response) => {
