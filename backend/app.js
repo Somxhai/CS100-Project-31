@@ -26,6 +26,10 @@ app.register(fastifyStatic, {
   prefix: "/img/",
 });
 
+app.get("/", async (request, reply) => {
+  reply.code(200).send({ message: "the server is running" });
+});
+
 app.get("/records:start", async (request, reply) => {
   const start = parseInt(request.query.start ?? 0);
   const result = [];
