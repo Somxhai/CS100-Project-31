@@ -14,13 +14,7 @@ export const app = Fastify({
   logger: true,
 });
 // register
-app.register(cors, {
-  origin: "*",
-  methods: "OPTION, GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  exposedHeaders: "Authorization",
-});
+app.register(cors);
 app.register(multipart, {
   limits: {
     fileSize: 30000000,
