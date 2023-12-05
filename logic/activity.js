@@ -10,7 +10,7 @@ import {
 } from "./validation.js";
 
 let activities = [];
-const port = "3030";
+const port = "8000";
 const ip = `http://${window.location.hostname}:${port}`;
 const fetchActivities = async (start = 0) => {
   await fetch(`${ip}/records?start=${start}`, {
