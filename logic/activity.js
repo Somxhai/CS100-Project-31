@@ -10,19 +10,25 @@ import {
 } from "./validation.js";
 
 let activities = [];
-const port = "8000";
+const port = 3030;
 const ip = `http://${window.location.hostname}:${port}`;
-const fetchActivities = async (start = 0) => {
-  await fetch(`${ip}/records?start=${start}`, {
-    method: "GET",
-  }).then(async (response) => {
-    if (!response.ok) return;
-
+const fetchActivities = async () => {
+  try {
+    const response = await fetch(`${ip}/records`, {
+      method: "GET",
+    });
+    if (!response.ok) {
+      console.error(`Error: ${response.status} - ${response.statusText}`);
+      return;
+    }
     const latestActivities = await response.json();
     activities = activities.concat(latestActivities.data);
     addActivitiesToPage(latestActivities.data);
-  });
+  } catch (error) {
+    console.error("Error fetching activities:", error);
+  }
 };
+
 const addActivitiesToPage = (activities) => {
   const resultContainer = document.getElementById("result-container");
   for (const i in activities) {
@@ -79,25 +85,30 @@ const getFormData = () => {
   }
   return json;
 };
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const validateSuccess = validateFormData(event);
   if (!validateSuccess) return;
-
   const formData = new FormData(event.target);
-  console.log(formData.get("title"));
-  await fetch(`${ip}/upload`, {
-    method: "POST",
-    body: formData,
-  }).then(async (response) => {
-    if (!response.ok) alert("ไม่สามารถบันทึกข้อมูลได้");
-
+  try {
+    const response = await fetch(`${ip}/upload`, {
+      method: "POST",
+      body: formData,
+    });
+    if (!response.ok) {
+      console.error(`Error: ${response.status} - ${response.statusText}`);
+      return;
+    }
     const newActivity = await response.json();
     activities = activities.concat(newActivity.data);
     addActivitiesToPage(newActivity.data);
-  });
+  } catch (error) {
+    console.error("Error submitting form:", error);
+  }
 });
-document.addEventListener("DOMContentLoaded", async () => {
-  await fetchActivities();
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchActivities();
   addYear();
 });
