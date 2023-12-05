@@ -12,13 +12,14 @@ import {
 let activities = [];
 const port = "3030";
 const ip = `http://${window.location.hostname}:${port}`;
-
 const fetchActivities = async (start = 0) => {
   await fetch(`${ip}/records?start=${start}`, {
     method: "GET",
   }).then(async (response) => {
+    if (!response.ok) return;
+
     const latestActivities = await response.json();
-    console.log(latestActivities.data);
+    activities = activities.concat(latestActivities.data);
     addActivitiesToPage(latestActivities.data);
   });
 };
@@ -84,21 +85,19 @@ form.addEventListener("submit", async (event) => {
   if (!validateSuccess) return;
 
   const formData = new FormData(event.target);
+  console.log(formData.get("title"));
   await fetch(`${ip}/upload`, {
     method: "POST",
     body: formData,
   }).then(async (response) => {
-    if (response.status === 200) {
-      try {
-        const newActivity = await response.json();
-        activities = activities.concat(newActivity.data);
-        addActivitiesToPage(newActivity.data);
-      } catch {}
-    }
+    if (!response.ok) alert("ไม่สามารถบันทึกข้อมูลได้");
+
+    const newActivity = await response.json();
+    activities = activities.concat(newActivity.data);
+    addActivitiesToPage(newActivity.data);
   });
 });
 document.addEventListener("DOMContentLoaded", async () => {
+  await fetchActivities();
   addYear();
 });
-
-await fetchActivities();
