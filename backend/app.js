@@ -14,16 +14,16 @@ export const app = Fastify({
   logger: true,
 });
 // register
-
-app.addHook("onRequest", (request, reply, done) => {
-  reply.header("Access-Control-Allow-Origin", "*");
-  reply.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS",
-  );
-  reply.header("Access-Control-Allow-Headers", "*");
-  done();
-});
+//
+// app.addHook("onRequest", (request, reply, done) => {
+//   reply.header("Access-Control-Allow-Origin", "*");
+//   reply.header(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PUT, DELETE, OPTIONS",
+//   );
+//   reply.header("Access-Control-Allow-Headers", "*");
+//   done();
+// });
 
 app.register(cors);
 app.register(multipart, {
@@ -42,11 +42,12 @@ app.get("/", async (request, reply) => {
 });
 
 app.get("/records:start", async (request, reply) => {
-  const start = parseInt(request.query.start ?? 0);
+  const start = parseInt(request.query.start || 0);
   const result = [];
   try {
     const recordsFile = fs.readFileSync("./db/records.json");
     const records = JSON.parse(recordsFile);
+
     for (let i = start; i < records.length; i++) {
       if (i < start + MAX_ACTIVITIES) {
         result.push(records[i]);
@@ -73,6 +74,7 @@ app.post("/upload", async function (request, reply) {
     if (part.type === "file") {
       // upload and save the file
       const path = `./db/img/${part.filename}`;
+
       latestRecord[part.fieldname] = part.filename;
       await pump(part.file, fs.createWriteStream(path));
       continue;
