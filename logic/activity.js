@@ -19,13 +19,13 @@ const fetchActivities = async () => {
     });
     if (!response.ok) {
       console.error(`Error: ${response.status} - ${response.statusText}`);
-      return;
+      return [];
     }
     const latestActivities = await response.json();
-    activities = activities.concat(latestActivities.data);
-    addActivitiesToPage(latestActivities.data);
+    return latestActivities;
   } catch (error) {
     console.error("Error fetching activities:", error);
+    return [];
   }
 };
 
@@ -92,23 +92,20 @@ form.addEventListener("submit", async (event) => {
   if (!validateSuccess) return;
   const formData = new FormData(event.target);
   try {
-    const response = await fetch(`${ip}/upload`, {
+    await fetch(`${ip}/upload`, {
       method: "POST",
       body: formData,
     });
-    if (!response.ok) {
-      console.error(`Error: ${response.status} - ${response.statusText}`);
-      return;
-    }
-    const newActivity = await response.json();
-    activities = activities.concat(newActivity.data);
-    addActivitiesToPage(newActivity.data);
   } catch (error) {
     console.error("Error submitting form:", error);
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetchActivities();
+document.addEventListener("DOMContentLoaded", async () => {
   addYear();
+  let data = await fetchActivities();
+  if (data.data != undefined) {
+    activities = activities.concat(data.data);
+    addActivitiesToPage(data.data);
+  }
 });
