@@ -1,177 +1,191 @@
 @import '../css/style.css';
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-nav a.home:hover{
-  color: #ffffff;
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
 }
 
-nav a.activity:hover{
-  color: #ffffff;
+nav a.home:hover {
+    color: #ffffff;
+}
+
+nav a.activity:hover {
+    color: #ffffff;
 }
 
 .form-hero-container {
-  padding: 2rem;
+    padding: 2rem;
 
 }
+
 .form-hero-text {
-  font-size: 7.5rem;
-  letter-spacing: -.035em;
-  line-height: 1.1;
-  margin-left: -.05em;
-  font-weight: normal;
-  padding-bottom: 4rem;
+    font-size: 7.5rem;
+    letter-spacing: -.035em;
+    line-height: 1.1;
+    margin-left: -.05em;
+    font-weight: normal;
+    padding-bottom: 4rem;
 }
 
 .form-container {
-  display: flex;
-  padding: 2rem;
-  align-items: start;
-  justify-content: space-between;
-  gap: 1rem; 
+    display: flex;
+    padding: 2rem;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
 
 }
+
 #activity-form {
-  max-width: 32rem; 
-  padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  display: block;
-  gap: 0.7rem;
+    width: 32rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    display: block;
+    gap: 0.7rem;
 
 }
 
 .error {
-  color: red;
-  font-size: 0.8125rem;
+    color: red;
+    font-size: 0.8125rem;
 }
 
 .submit-button {
-  padding: 0.8125rem 0.5rem;
-  display: block;
-  cursor: pointer;
-  z-index: 3;
-  margin: 0.5rem auto;
-  background-color: var(--primary); 
-  color: white;
-  border-radius: 8px;
-  min-width: 16rem;
+    padding: 0.8125rem 0.5rem;
+    display: block;
+    cursor: pointer;
+    z-index: 3;
+    margin: 0.5rem auto;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 8px;
+    min-width: 16rem;
 }
+
 .input-group {
-  display: block;
+    display: block;
 
 }
- .input-group label {
+
+.input-group label {
     display: block;
-  } 
+}
 
 
 .input-group input {
-  padding: var(--input-padding);
-  display: block;
-  width: 100%;
-  border-radius: 8px; 
-  outline: none;
+    padding: var(--input-padding);
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
 }
-.input-group select { 
-  display: block;
-  padding: var(--input-padding);
-  background-color: white;
+
+.input-group select {
+    display: block;
+    padding: var(--input-padding);
+    background-color: white;
 }
 
 .input-group textarea {
 
-  padding: var(--input-padding);
-  display: block;
-  width: 100%;
-  resize: none;
-  overflow-y: auto;
-  height: 16rem;
+    padding: var(--input-padding);
+    display: block;
+    width: 100%;
+    resize: none;
+    overflow-y: auto;
+    height: 16rem;
 }
 
 .input-group #image {
-  display: none;
+    display: none;
 
 }
 
 .input-group .pick-image-text {
-  position: absolute;
-  transform: translate(-50%, -50%); 
-  left: 50%;
-  z-index: -1;
-  top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    z-index: -1;
+    top: 50%;
 }
+
 .input-group .image-label {
-  display: flex;
-  gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 button[id="resetImage"] {
-  cursor: pointer;
-  color: red;
-  padding: 0;
-  font-size: 1rem;
-  text-decoration: underline;
+    cursor: pointer;
+    color: red;
+    padding: 0;
+    font-size: 1rem;
+    text-decoration: underline;
 }
+
 .input-group #image-display {
-  border: 1px dashed var(--input-border-color); 
-  width: 100%;
-  max-width: 80%;
-  display: block;
-  margin: 0 auto;
-  background-color: white;
-  height: 12rem;
-  object-fit: cover;
+    border: 1px dashed var(--input-border-color);
+    width: 100%;
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+    height: 12rem;
+    object-fit: cover;
 }
 
 .result-container {
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  min-height: 32rem;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-height: 32rem;
 }
 
-.result-title { 
-  text-align: center;
+.result-title {
+    text-align: center;
 }
 
 .activity-container {
-  width: 28rem;
-  background-color: white;
-  padding: var(--input-padding);
-  border: 1px solid var(--input-border-color);
-  border-radius: 8px;
+    width: 28rem;
+    background-color: white;
+    padding: var(--input-padding);
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
 }
 
 .activity-container .activity-img {
-  margin: 0 auto;
-  display: block;
-  width: auto;
-  height: 12rem;
-  object-fit: contain;
-}
-.activity-container blockquote {
-  word-wrap: break-word;
-  width: 100%;
-}
-.activity-container .title {
-  text-align: center;
-  font-size: 1.2rem;
-  overflow: hidden;
-  max-lines: 1;
-  text-overflow: ellipsis;
-}
-.activity-container .divider {
-  height:1px;
-  background-color: var(--input-border-color);
-  width: 100%;
-  margin: 1rem 0;
-}
-.activity-container .author, .activity-container .date {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    height: 12rem;
+    object-fit: contain;
 }
 
+.activity-container blockquote {
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.activity-container .title {
+    text-align: center;
+    font-size: 1.2rem;
+    overflow: hidden;
+    max-lines: 1;
+    text-overflow: ellipsis;
+}
+
+.activity-container .divider {
+    height: 1px;
+    background-color: var(--input-border-color);
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.activity-container .author,
+.activity-container .date {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
